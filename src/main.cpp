@@ -121,8 +121,6 @@ void alarmSend(String message, bool finish) {
     mqttClient.publish(TOPIC.c_str(), 0, false, command.c_str());
   }
   if(finish) {
-    xTimerStop(mqttReconnectTimer, 0);
-    xTimerStop(wifiReconnectTimer, 0);
     while(finish) {
       digitalWrite(LED_BUILTIN, HIGH);
       delay(2500);
